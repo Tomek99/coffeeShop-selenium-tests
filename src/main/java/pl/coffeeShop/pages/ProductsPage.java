@@ -25,12 +25,21 @@ public class ProductsPage {
     @FindBy(xpath = "//a[@aria-label='Previous page']")
     private WebElement btnArrowLeft;
 
+    @FindBy (xpath = "//div[@class='BtnsProduct_BtnsProduct__Gi5nT']//button[2]")
+    private List<WebElement> cartBtn;
+
     @FindBy(className = "NavigationBar_quantityProductsInBasket__UCI0e")
     private WebElement productsQuantity;
 
     @FindBy(xpath = "//div/a[@href='/wish-list']")
     private WebElement btnWishlist;
 
+
+    @FindBy(id = "cartBtnOpen132")
+    private WebElement slideCartBtn;
+
+    @FindBy(linkText = "View my cart")
+            private  WebElement cartViewBtn;
 
     WebDriver driver;
 
@@ -66,14 +75,21 @@ public class ProductsPage {
         return new ProductDetailsPage(driver);
     }
 
+    public ViewCartPage openViewCart() {
+        slideCartBtn.click();
+        cartViewBtn.click();
+
+        return new ViewCartPage(driver);
+    }
+
     public ProductDetailsPage openProductDetailsPageByText(String productName) {
         driver.findElement(By.xpath("//h3[text()='" + productName + "']"))
                 .click();
         return new ProductDetailsPage(driver);
     }
 
-    public ProductsPage addProductCart(String productId) {
-        driver.findElement(By.id(productId)).click();
+    public ProductsPage addProductCart(int productNumber) {
+        cartBtn.get(productNumber).click();
         return this;
     }
 

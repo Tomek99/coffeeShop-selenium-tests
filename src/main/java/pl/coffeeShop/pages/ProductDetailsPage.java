@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProductDetailsPage {
+    @FindBy(xpath = "//h1")
+    private WebElement productName;
 
-   WebDriver driver;
+    WebDriver driver;
+
     public ProductDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -16,6 +19,12 @@ public class ProductDetailsPage {
 
     public String getProductName(String productName) {
         String xpathExpression = "//h1[text()='" + productName + "']";
-        return driver.findElement(By.xpath(xpathExpression)).getText();
+        return driver
+                .findElement(By.xpath(xpathExpression))
+                .getText();
+    }
+
+    public String productName() {
+        return productName.getText();
     }
 }

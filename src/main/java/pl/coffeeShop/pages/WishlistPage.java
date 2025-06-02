@@ -20,6 +20,7 @@ public class WishlistPage {
 
     public WishlistPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+
         this.driver = driver;
     }
 

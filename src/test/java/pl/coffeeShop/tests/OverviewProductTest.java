@@ -34,12 +34,12 @@ public class OverviewProductTest extends BaseTest {
 
     @Test
     public void addProductCartTest() {
-        String productId = "cartFillId1";
+        int productNumber = 1;
         String productQuantityExpected = "1";
 
         String productQuantity = new HomePage(driver)
                 .openProductsPage()
-                .addProductCart(productId)
+                .addProductCart(productNumber)
                 .getProductsQuantityInCart();
 
         Assert.assertEquals(productQuantity, productQuantityExpected);

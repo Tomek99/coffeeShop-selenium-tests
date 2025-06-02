@@ -19,7 +19,6 @@ public class ContactPage {
     private List<WebElement> nameInputs;
     @FindBy(name = "email")
     private WebElement email_input_one;
-;
     @FindBy(name = "number")
     private WebElement phone_input_two;
     @FindBy(id = "message0")
