@@ -13,6 +13,7 @@ public class ViewCartTest extends BaseTest {
                 .openProductsPage()
                 .addProductCart(1)
                 .addProductCart(3)
+                .openPreviewCart()
                 .openViewCart()
                 .cartQuantity();
 
@@ -22,9 +23,11 @@ public class ViewCartTest extends BaseTest {
     @Test
     public void clearTheCartTest() {
         String expectedText = "Your cart is empty";
+
         String actualText = new HomePage(driver)
                 .openProductsPage()
                 .addProductCart(1)
+                .openPreviewCart()
                 .openViewCart()
                 .clearTheCart()
                 .getEmptyCartMessage();
@@ -39,6 +42,7 @@ public class ViewCartTest extends BaseTest {
                 .openProductsPage()
                 .addProductCart(1)
                 .addProductCart(3)
+                .openPreviewCart()
                 .openViewCart()
                 .deleteProductFromCart(1)
                 .cartQuantity();
@@ -52,6 +56,7 @@ public class ViewCartTest extends BaseTest {
         String actualText = new HomePage(driver)
                 .openProductsPage()
                 .addProductCart(1)
+                .openPreviewCart()
                 .openViewCart()
                 .changeProductQuantity(0, "5")
                 .cartQuantity();
@@ -65,6 +70,7 @@ public class ViewCartTest extends BaseTest {
         String actualText = new HomePage(driver)
                 .openProductsPage()
                 .addProductCart(1)
+                .openPreviewCart()
                 .openViewCart()
                 .clickOnDiscount()
                 .fillInputDiscount("15discount")
@@ -80,6 +86,7 @@ public class ViewCartTest extends BaseTest {
         String actualText = new HomePage(driver)
                 .openProductsPage()
                 .addProductCart(1)
+                .openPreviewCart()
                 .openViewCart()
                 .clickOnProductDetails(0)
                 .productName();

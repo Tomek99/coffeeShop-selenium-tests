@@ -36,7 +36,7 @@ public class ProductsPage {
 
 
     @FindBy(id = "cartBtnOpen132")
-    private WebElement slideCartBtn;
+    private WebElement previewCartBtn;
 
     @FindBy(linkText = "View my cart")
             private  WebElement cartViewBtn;
@@ -75,8 +75,12 @@ public class ProductsPage {
         return new ProductDetailsPage(driver);
     }
 
+    public ProductsPage openPreviewCart() {
+        previewCartBtn.click();
+        return new ProductsPage(driver);
+    }
+
     public ViewCartPage openViewCart() {
-        slideCartBtn.click();
         cartViewBtn.click();
 
         return new ViewCartPage(driver);
@@ -89,6 +93,7 @@ public class ProductsPage {
     }
 
     public ProductsPage addProductCart(int productNumber) {
+
         cartBtn.get(productNumber).click();
         return this;
     }

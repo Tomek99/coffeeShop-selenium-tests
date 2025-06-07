@@ -19,6 +19,11 @@ public class SeleniumHelper {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
+
+    public static void waitForLocated(WebDriver driver, By element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
     public static void waitForAlert(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());

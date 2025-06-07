@@ -5,7 +5,7 @@ Feature: User view cart
       Given The user is located on main page
       When The user opens product page
       And The user adds products to cart
-      And The user opens quick overview cart
+      And The user opens preview cart
       And The user opens View Cart page
 
     Scenario: Verify cart quantity
